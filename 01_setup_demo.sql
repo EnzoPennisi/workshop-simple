@@ -18,7 +18,8 @@ $$
 BEGIN
     INSERT INTO DEMO_CLIENTES VALUES
     (3, 'Cliente C (SP)', CURRENT_DATE()),
-    (4, 'Cliente D (SP)', CURRENT_DATE());
+    (4, 'Cliente D (SP)', CURRENT_DATE()),
+    (5, 'Cliente E (SP)', CURRENT_DATE());
 
     RETURN 'OK - Datos insertados desde SP';
 END;

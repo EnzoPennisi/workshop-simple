@@ -1,7 +1,3 @@
--- =====================================================
--- MINI WORKSHOP DEMO
--- Ejecutado desde VS Code (Snowflake Extension)
--- =====================================================
 
 USE DATABASE DEMO_WS;
 USE SCHEMA WORKSHOP;
@@ -13,10 +9,17 @@ CREATE OR REPLACE TABLE DEMO_CLIENTES (
     FECHA_ALTA DATE
 );
 
--- 2. Insert simple
-INSERT INTO DEMO_CLIENTES VALUES
-(1, 'Cliente A', CURRENT_DATE()),
-(2, 'Cliente B', CURRENT_DATE());
+CREATE OR REPLACE PROCEDURE SP_CARGAR_CLIENTES_DEMO()
+RETURNS STRING
+LANGUAGE SQL
+EXECUTE AS OWNER
+AS
+$$
+BEGIN
+    INSERT INTO DEMO_CLIENTES VALUES
+    (3, 'Cliente C (SP)', CURRENT_DATE()),
+    (4, 'Cliente D (SP)', CURRENT_DATE());
 
--- 3. Consulta para validar
-SELECT * FROM DEMO_CLIENTES;
+    RETURN 'OK - Datos insertados desde SP';
+END;
+$$;

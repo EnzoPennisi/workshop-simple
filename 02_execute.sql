@@ -1,0 +1,16 @@
+USE DATABASE DEMO_WS;
+USE SCHEMA WORKSHOP;
+
+-- 1. Insert simple
+INSERT INTO DEMO_CLIENTES VALUES
+(1, 'Cliente A', CURRENT_DATE()),
+(2, 'Cliente B', CURRENT_DATE());
+
+-- 2. Consulta para validar
+SELECT * FROM DEMO_CLIENTES;
+
+-- 3. Ejecutar SP
+CALL SP_CARGAR_CLIENTES_DEMO();
+
+-- 4. Ver resultados
+SELECT * FROM DEMO_CLIENTES;
